@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FairlyReliableCarSalesSite.Models.Job>
+
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-white">Job Postings</h1>
+        <p class="lead text-light">Explore current job openings at Fairly Reliable Car Sales.</p>
+        <a asp-action="Create" class="btn btn-outline-light mt-3">Add New Job</a>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Jobs Table -->
+    <div class="table-responsive bg-dark p-4 rounded shadow">
+        <table class="table table-dark table-bordered table-striped align-middle">
+            <thead class="table-light text-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().ImageUrl)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>
+                                <img src="@item.ImageUrl" alt="@item.Title" style="max-width: 150px; max-height: 100px; object-fit: cover;">
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-light btn-sm me-2">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm me-2">Details</a>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-light">No job postings available. Add a new job using the button above.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

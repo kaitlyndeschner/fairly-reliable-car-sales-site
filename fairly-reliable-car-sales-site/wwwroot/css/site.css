@@ -1,0 +1,343 @@
+/* Universal styles for all pages */
+body {
+    background-color: black !important; /* Force black background for all pages */
+    color: white !important; /* White text for readability */
+    font-family: Arial, sans-serif; /* Consistent font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the footer stays at the bottom */
+html, body {
+    height: 100%; /* Make the page take up the full viewport height */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Pushes the footer to the bottom by stretching the main content area */
+}
+
+/* Footer Styling */
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-top: 1px solid grey;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space out text and icons */
+    align-items: center; /* Vertically align content */
+}
+
+.footer-text {
+    text-align: left;
+}
+
+.footer-icons a {
+    margin-left: 15px; /* Add spacing between icons */
+    color: white; /* Icon color */
+    font-size: 1.5rem; /* Adjust icon size */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+    .footer-icons a:hover {
+        color: #007bff; /* Change color on hover */
+    }
+
+/* Centering and Padding for Main Content */
+.container {
+    max-width: 1200px !important; /* Constrain content width */
+    margin: 0 auto !important; /* Center content horizontally */
+    padding: 20px !important; /* Add padding inside the container */
+    box-sizing: border-box; /* Ensure padding is included in the element's width */
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 0.1rem 1rem; /* Reduce navbar padding to make it smaller */
+    background-color: #fff; /* Keep the white background */
+    border-bottom: 1px solid #ccc; /* Subtle border for separation */
+}
+
+.navbar-brand img {
+    max-height: 50px; /* Reduce logo size for better proportions */
+    object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+    font-size: 0.9rem; /* Reduce font size for links */
+    padding: 0.4rem 0.8rem; /* Adjust link padding */
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem; /* Reduce size of the toggle button for smaller screens */
+}
+
+.navbar-collapse {
+    margin: 0; /* Ensure the menu is aligned properly */
+}
+
+    .navbar-collapse .navbar-nav {
+        margin: 0; /* Remove unnecessary spacing around links */
+    }
+
+/* Header Styling */
+.text-center h1,
+.text-center p {
+    margin-bottom: 20px;
+    text-align: center; /* Ensure centered text */
+}
+
+/* Carousel Styling */
+.carousel {
+    margin-top: 20px;
+    border: 1px solid #444; /* Add a subtle border around the carousel */
+    border-radius: 10px; /* Rounded corners for carousel */
+}
+
+.carousel-inner img {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px; /* Consistent rounded corners for images */
+}
+
+/* Carousel Control Buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Makes controls visible on dark background */
+}
+
+/* Carousel Indicators Styling */
+.carousel-indicators button {
+    background-color: none; /* Semi-transparent dark grey for inactive indicators */
+    border: none !important; /* Remove border */
+}
+
+.carousel-indicators .active {
+    background-color: #343a40 !important; /* Solid dark grey for the active indicator */
+}
+
+.carousel-indicators button:hover {
+    background-color: #343a40 !important; /* Solid dark grey on hover */
+}
+
+/* Button Styling */
+button,
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover,
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+
+/* Table Styling */
+table {
+    border: 1px solid darkgrey;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid darkgrey;
+    padding: 8px;
+    text-align: left;
+    color: white;
+}
+
+th {
+    background-color: #444; /* Dark grey background for table headers */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #333; /* Slightly lighter grey rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #222; /* Darker grey rows */
+}
+
+/* Links Styling */
+a {
+    color: #ffa500; /* Orange links */
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #ffcc00; /* Lighter orange on hover */
+        text-decoration: underline;
+    }
+
+/* Map Responsive Styling */
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+    height: 0;
+}
+
+    .map-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+/* YouTube Video Embedding */
+.iframe-container-youtube {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+    .iframe-container-youtube iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+/* Custom CSS for price text */
+.price-text {
+    font-size: 1.5rem; /* Increase font size */
+    text-align: right; /* Right align the text */
+    font-weight: bold; /* Make the text bold */
+    display: block; /* Ensure it occupies its own line */
+}
+
+
+/* Delete Button Styling */
+.delete-button {
+    border-color: #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .delete-button:hover {
+        background-color: #c0392b;
+        color: white;
+    }
+
+/* Back to List Button Styling */
+.back-to-list-button {
+    border-color: #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .back-to-list-button:hover {
+        background-color: #c0392b;
+        color: white;
+    }
+
+/* Delete Button Styling */
+.delete-button {
+    border-color: #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .delete-button:hover {
+        background-color: #c0392b;
+        color: white;
+    }
+
+/* Back to List Button Styling */
+.back-to-list-button {
+    border-color: #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .back-to-list-button:hover {
+        background-color: #2c3e50; /* Grey background on hover */
+        color: white;
+    }
+
+/* Remove Underline from Buttons */
+button,
+a.btn {
+    text-decoration: none; /* Remove underline */
+}
+
+    button:hover,
+    a.btn:hover {
+        text-decoration: none; /* Ensure underline is removed on hover */
+    }
+
+
+/* Common Button Styling */
+.delete-button,
+.back-to-list-button {
+    border-color: #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    /* Hover Behavior */
+    .delete-button:hover,
+    .back-to-list-button:hover {
+        background-color: #2c3e50; /* Grey background on hover */
+        color: white; /* White text on hover */
+    }
+
+.fixed-img {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
+    padding: 1rem 0; /* Reduced padding */
+    text-align: center;
+}
+
+    footer h5 {
+        font-weight: bold;
+        margin-bottom: 0.5rem; /* Less spacing below the heading */
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    footer a {
+        color: #fff; /* White color for icons */
+        margin-right: 0.5rem; /* Reduced spacing between icons */
+        transition: color 0.3s ease; /* Smooth color transition on hover */
+    }
+
+        footer a:last-child {
+            margin-right: 0; /* Remove margin for the last icon */
+        }
+
+        footer a:hover {
+            color: #c0392b; /* Red color on hover */
+        }
+
+    footer p {
+        margin-top: 0.5rem; /* Less space above the paragraph */
+        margin-bottom: 0;
+        font-size: 0.8rem; /* Smaller font size */
+    }
+
+    footer i {
+        font-size: 1.5rem; /* Reduced icon size */
+    }
+

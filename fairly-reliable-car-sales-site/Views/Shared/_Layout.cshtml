@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fairly Reliable Car Sales</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="/path-to-your-css-file.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/">
+                    <img src="/images/Fairly Reliable.jpg" alt="Fairly Reliable Logo">
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Links -->
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Cars for Sale</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NewsEvents">News & Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Enquiries" asp-action="Index">Enquiries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main role="main" class="pb-3">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Copyright Text -->
+            <div>
+                <p class="mb-0">&copy; 2024 Fairly Reliable Car Sales. All Rights Reserved.</p>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="d-flex">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com" target="_blank" class="text-white me-4" aria-label="Facebook">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <!-- Twitter -->
+                <a href="https://www.twitter.com" target="_blank" class="text-white me-4" aria-label="Twitter">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com" target="_blank" class="text-white me-4" aria-label="Instagram">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com" target="_blank" class="text-white me-4" aria-label="TikTok">
+                    <i class="fab fa-tiktok fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

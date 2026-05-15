@@ -1,0 +1,39 @@
+﻿@model FairlyReliableCarSalesSite.Models.Event
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-white">Event Details</h1>
+        <p class="lead text-light">View the details of the selected event below.</p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Event Details -->
+    <div class="row justify-content-center">
+        <div class="col-md-6 bg-dark text-white p-4 rounded shadow">
+            <h4 class="fw-bold text-center">Event Information</h4>
+            <hr />
+
+            <dl class="row mb-4">
+                <dt class="col-sm-4 fw-bold">Title:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Title)</dd>
+
+                <dt class="col-sm-4 fw-bold">Date:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Date.ToString("dd MMMM yyyy"))</dd>
+
+                <dt class="col-sm-4 fw-bold">Details:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Details)</dd>
+            </dl>
+
+            <!-- Action Buttons -->
+            <div class="text-center">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-light btn-lg">Edit</a>
+                <a asp-action="Index" class="btn btn-light btn-lg ms-3">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

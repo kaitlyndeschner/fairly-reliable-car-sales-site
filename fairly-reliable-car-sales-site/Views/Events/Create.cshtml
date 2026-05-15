@@ -1,0 +1,60 @@
+﻿@model FairlyReliableCarSalesSite.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-white">Create New Event</h1>
+        <p class="lead text-light">Add a new event to engage with our community and customers.</p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-6 bg-dark text-white p-4 rounded shadow">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Title Field -->
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label fw-bold">Event Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter event title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <!-- Date Field -->
+                <div class="mb-3">
+                    <label asp-for="Date" class="form-label fw-bold">Event Date</label>
+                    <input asp-for="Date" type="date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <!-- Details Field -->
+                <div class="mb-3">
+                    <label asp-for="Details" class="form-label fw-bold">Event Details</label>
+                    <textarea asp-for="Details" class="form-control" rows="5" placeholder="Provide a brief description of the event"></textarea>
+                    <span asp-validation-for="Details" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-light btn-lg" style="background-color: #c0392b; color: white;">Create Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

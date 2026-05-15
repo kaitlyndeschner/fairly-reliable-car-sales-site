@@ -1,0 +1,40 @@
+﻿@model FairlyReliableCarSalesSite.Models.Event
+
+@{
+    ViewData["Title"] = "Delete Event";
+}
+
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-white">Delete Event</h1>
+        <p class="lead text-light">Are you sure you want to delete this event? This action cannot be undone.</p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Event Details -->
+    <div class="row justify-content-center">
+        <div class="col-md-6 bg-dark text-white p-4 rounded shadow">
+            <h4 class="fw-bold text-center">Event Details</h4>
+            <hr />
+
+            <dl class="row mb-4">
+                <dt class="col-sm-4 fw-bold">Title:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Title)</dd>
+
+                <dt class="col-sm-4 fw-bold">Date:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Date.ToString("dd MMMM yyyy"))</dd>
+
+                <dt class="col-sm-4 fw-bold">Details:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Details)</dd>
+            </dl>
+
+            <!-- Confirmation Form -->
+            <form asp-action="Delete" method="post" class="text-center">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                <a asp-action="Index" class="btn btn-outline-light btn-lg ms-3">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

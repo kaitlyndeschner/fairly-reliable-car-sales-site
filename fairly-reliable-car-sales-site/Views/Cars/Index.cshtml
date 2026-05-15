@@ -1,0 +1,117 @@
+﻿@model IEnumerable<FairlyReliableCarSalesSite.Models.Car>
+
+@{
+    ViewData["Title"] = "Cars for Sale";
+}
+
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-white">Cars for Sale</h1>
+        <p class="lead text-light">
+            Browse our wide selection of reliable and affordable vehicles.
+        </p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-outline-light me-2" style="border-color: #c0392b; color: #c0392b;" type="button" data-bs-toggle="collapse" data-bs-target="#searchCarsForm" aria-expanded="false" aria-controls="searchCarsForm">
+            Search Cars
+        </button>
+        <a asp-action="Create" class="btn btn-outline-light" style="border-color: #c0392b; color: #c0392b;">Create New</a>
+    </div>
+
+    <!-- Search Form -->
+    <div class="collapse" id="searchCarsForm">
+        <form asp-action="Index" method="get" class="p-3 rounded bg-dark text-white shadow">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="searchYearMin" class="form-label">Year (Min)</label>
+                    <input type="number" name="yearMin" class="form-control" placeholder="Year Min" value="@ViewData["yearMin"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="searchYearMax" class="form-label">Year (Max)</label>
+                    <input type="number" name="yearMax" class="form-control" placeholder="Year Max" value="@ViewData["yearMax"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="searchMake" class="form-label">Make</label>
+                    <input type="text" name="searchMake" class="form-control" placeholder="Make" value="@ViewData["searchMake"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="searchModel" class="form-label">Model</label>
+                    <input type="text" name="searchModel" class="form-control" placeholder="Model" value="@ViewData["searchModel"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="searchFuelType" class="form-label">Fuel Type</label>
+                    <input type="text" name="searchFuelType" class="form-control" placeholder="Fuel Type" value="@ViewData["searchFuelType"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="searchColour" class="form-label">Colour</label>
+                    <input type="text" name="searchColour" class="form-control" placeholder="Colour" value="@ViewData["searchColour"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="minPrice" class="form-label">Price (Min)</label>
+                    <input type="number" name="minPrice" class="form-control" placeholder="Min Price" value="@ViewData["minPrice"]" />
+                </div>
+                <div class="col-md-3">
+                    <label for="maxPrice" class="form-label">Price (Max)</label>
+                    <input type="number" name="maxPrice" class="form-control" placeholder="Max Price" value="@ViewData["maxPrice"]" />
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-outline-light w-100 mt-3" style="border-color: #c0392b; color: #c0392b;">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Car Listings -->
+    <div class="row">
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm" style="background-color: #2c3e50; color: white;">
+                        <!-- Car Image -->
+                        <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? item.ImageUrl : "/images/default.jpg")"
+                             class="card-img-top" alt="Car Image" style="height: 200px; object-fit: cover;" />
+
+                        <!-- Card Header -->
+                        <div class="card-header text-center text-white fw-bold" style="background-color: #c0392b;">
+                            @item.Year @item.Make @item.Model
+                        </div>
+
+                        <!-- Hidden Details -->
+                        <div class="card-body collapse" id="details-@item.CarId">
+                            <p>
+                                <strong>Year:</strong> @item.Year<br />
+                                <strong>Make:</strong> @item.Make<br />
+                                <strong>Model:</strong> @item.Model<br />
+                                <strong>Fuel Type:</strong> @item.FuelType<br />
+                                <strong>Colour:</strong> @item.Colour<br />
+                                <strong>Price:</strong> @item.Price.ToString("C")<br />
+                                <strong>Details:</strong> @item.Details<br />
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between p-3">
+                            <button class="btn btn-outline-light btn-sm" style="border-color: #c0392b; color: #c0392b;" type="button" data-bs-toggle="collapse" data-bs-target="#details-@item.CarId" aria-expanded="false" aria-controls="details-@item.CarId">
+                                Details
+                            </button>
+                            <a asp-action="Edit" asp-route-id="@item.CarId" class="btn btn-outline-light btn-sm" style="border-color: #c0392b; color: #c0392b;">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.CarId" class="btn btn-outline-danger btn-sm" style="border-color: #c0392b;">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <p class="text-white">No cars available for sale.</p>
+            </div>
+        }
+    </div>
+</div>

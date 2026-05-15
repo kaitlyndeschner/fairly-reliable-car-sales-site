@@ -1,0 +1,106 @@
+﻿@model FairlyReliableCarSalesSite.Models.Car
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-white">Edit Car Details</h1>
+        <p class="lead text-light">
+            Update the details of the car below and save your changes.
+        </p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="p-4 rounded bg-dark text-white shadow">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="CarId" />
+                    <div class="form-group mb-3">
+                        <label asp-for="Year" class="form-label">Year</label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Make" class="form-label">Make</label>
+                        <input asp-for="Make" class="form-control" />
+                        <span asp-validation-for="Make" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Model" class="form-label">Model</label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Price" class="form-label">Price</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Details" class="form-label">Details</label>
+                        <textarea asp-for="Details" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FuelType" class="form-label">Fuel Type</label>
+                        <input asp-for="FuelType" class="form-control" />
+                        <span asp-validation-for="FuelType" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Colour" class="form-label">Colour</label>
+                        <input asp-for="Colour" class="form-control" />
+                        <span asp-validation-for="Colour" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label asp-for="ImageFile" class="form-label">Car Image</label>
+                        <input asp-for="ImageFile" class="form-control" type="file" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+
+                    <!-- Display Current Image -->
+                    <div class="form-group mb-4">
+                        <label>Current Image:</label>
+                        <div>
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <img src="@Url.Content(Model.ImageUrl)" alt="Current Image" class="img-fluid rounded shadow" style="max-width: 100%; height: auto;" />
+                            }
+                            else
+                            {
+                                <p class="text-light">No image available.</p>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <input type="submit" value="Save" class="btn btn-outline-light" style="border-color: #c0392b; color: #c0392b;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-outline-light" style="border-color: #c0392b; color: #c0392b;">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

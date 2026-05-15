@@ -1,0 +1,79 @@
+﻿@model FairlyReliableCarSalesSite.Models.Enquiry
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-white">Create Enquiry</h1>
+        <p class="lead text-light">
+            Fill in the details below to create a new enquiry.
+        </p>
+        <hr style="border: 1px solid #c0392b; width: 50%; margin: auto;">
+    </div>
+
+    <!-- Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="p-4 rounded bg-dark text-white shadow">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="form-label">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="CarId" class="form-label">Car ID</label>
+                        <select asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
+                        <span asp-validation-for="CarId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Message" class="form-label">Message</label>
+                        <textarea asp-for="Message" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="DateSubmitted" class="form-label">Date Submitted</label>
+                        <input asp-for="DateSubmitted" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+                        <span asp-validation-for="DateSubmitted" class="text-danger"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <input type="submit" value="Create" class="btn btn-outline-light" style="border-color: #c0392b; color: #c0392b;" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-outline-light" style="border-color: #c0392b; color: #c0392b;">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
