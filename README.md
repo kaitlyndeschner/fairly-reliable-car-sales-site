@@ -78,7 +78,7 @@ fairly-reliable-car-sales-site/
 
 ### Home Page
 
-![Home Page](screenshots/home-page.png)
+![Home Page](Screenshots/home-page.png)
 
 ![Home Page](screenshots/home-page-2.png)
 
